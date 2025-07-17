@@ -199,6 +199,8 @@
   }
 }
 
+ 
+
   </style>
 </head>
 <body>
@@ -207,53 +209,90 @@
     <h1>I’m So Sorry, Harika 💔</h1>
     <img class="cat-gif" src="crying-cat.gif" alt="Crying Cat" />
     
+    <audio id="bgMusic" src="music.mp3" preload="auto"></audio>
+
     <div class="apology-text">
       Hey my cutiee patootie…<br><br>
       I know I messed up. What I said was stupid nd hurtful, and I never meant to make u feel bad.  
       You’re always too special to me and it breaks my heart knowing I made u upset.  
       I should have really not said that.  
-      Please forgive your stupid bestt frndd 😔💗  
-      I promise I’ll make it up to you. i'm literally sooo sorryy cutiee piee 🙇🏻🙇🏻.
+      Please forgive your stupid bestt frndd 😔💗.
+      i'm literally sooo sorryy cutiee piee 🙇🏻🙇🏻.
+      hope u forgive me this time 👉🏻👈🏻.
     </div>
 
-    <button class="forgive-btn" onclick="showForgiveMessage()">click here if u Forgive Me?</button>
+    <button class="forgive-btn" onclick="showForgiveMessage()">click here if u forgive Me</button>
 
     <div class="result-message" id="message">
       Yay! You just made me the happiest idiot in the world 🥺🫶🏼. tysmm for ur forgiveness and trust me it will never happen again 🫶🏼.
     </div>
 
-    <button class="smile-btn" id="smileBtn" onclick="showSmileMessage()">Click for a Smile</button>
+    <button class="smile-btn" id="smileBtn" onclick="showSmileMessage()">Click here</button>
 
-    <div id="smileMessage">✨ Sending you my sincere apologies and a million smiles 💗✨</div>
+    <div id="smileMessage">✨ Sending you my sincere apologies and a million heartss 💗✨</div>
   </div>
 
-  <audio id="bgMusic" autoplay loop>
-    <source src="sad.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+   <script>
+  // Wait till page fully loads
+  document.addEventListener("DOMContentLoaded", function () {
+    const smileButton = document.getElementById("smileBtn");
+    const sparkleMsg = document.getElementById("sparkleText");
+    const audio = document.getElementById("bgMusic");
 
-  <!-- Sparkles -->
-  <script>
-    for (let i = 0; i < 30; i++) {
-      const sparkle = document.createElement('div');
-      sparkle.className = 'sparkle';
-      sparkle.style.left = Math.random() * 100 + 'vw';
-      sparkle.style.top = Math.random() * 100 + 'vh';
-      sparkle.style.animationDelay = Math.random() * 5 + 's';
-      document.body.appendChild(sparkle);
-    }
-  </script>
+    // Fixing autoplay issues for mobile
+    smileButton.addEventListener("click", function () {
+      // Play audio safely
+      if (audio && audio.paused) {
+        audio.play().catch(err => {
+          console.log("Autoplay failed: ", err);
+        });
+      }
 
-  <!-- Floating hearts -->
-  <script>
-    for (let i = 0; i < 15; i++) {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDelay = Math.random() * 10 + 's';
-      document.body.appendChild(heart);
+      // Show message
+      sparkleMsg.style.opacity = "1";
+      sparkleMsg.style.transform = "scale(1.05)";
+
+      // Trigger sparkles
+      createSparkles();
+    });
+
+    function createSparkles() {
+      for (let i = 0; i < 30; i++) {
+        let sparkle = document.createElement("div");
+        sparkle.className = "sparkle";
+        sparkle.style.left = Math.random() * 100 + "vw";
+        sparkle.style.top = Math.random() * 100 + "vh";
+        document.body.appendChild(sparkle);
+
+        setTimeout(() => {
+          sparkle.remove();
+        }, 1500);
+      }
     }
-  </script>
+  });
+</script>
+
+<!-- Floating hearts -->
+<script>
+  for (let i = 0; i < 20; i++) {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    
+    // Random horizontal position
+    heart.style.left = Math.random() * 100 + 'vw';
+    
+    // Random vertical offset to prevent stacking
+    heart.style.top = Math.random() * 100 + 'vh';
+
+    // Random animation delay and duration
+    heart.style.animationDelay = Math.random() * 10 + 's';
+    heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+
+    document.body.appendChild(heart);
+  }
+</script>
+
+
 
   <!-- Confetti -->
   <canvas class="confetti" id="confettiCanvas"></canvas>
@@ -275,6 +314,31 @@
       msg.style.display = 'block';
     }
   </script>
+
+  <script>
+  function showForgiveMessage() {
+    const audio = document.getElementById("bgMusic");
+
+    // Trigger confetti animation
+    confetti({
+      particleCount: 100,
+      spread: 80,
+      origin: { y: 0.6 }
+    });
+
+    // Show the message and smile button
+    document.getElementById('message').style.display = 'block';
+    document.getElementById('smileBtn').style.display = 'inline-block';
+
+    // Try to play audio after user interaction
+    if (audio && audio.paused) {
+      audio.play().catch(err => {
+        console.log("Audio play failed:", err);
+      });
+    }
+  }
+</script>
+
 
 </body>
 </html>
