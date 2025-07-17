@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>I’m Sorry Harika 💔</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(to bottom, #ffd6d6, #fff0f5);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #cc4c4c;
+      text-align: center;
+      margin-top: 20px;
+      text-shadow: 0 0 5px #fff;
+      z-index: 2;
+    }
+    .cat-gif {
+      width: 220px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 192, 203, 0.6);
+      margin-top: 10px;
+      z-index: 2;
+    }
+    .apology-text {
+      max-width: 90%;
+      text-align: center;
+      font-size: 1.1em;
+      color: #444;
+      margin: 20px auto;
+      background: #fff9f9;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(255, 200, 200, 0.3);
+      z-index: 2;
+    }
+    .forgive-btn, .smile-btn {
+      padding: 15px 25px;
+      background-color: #ff9090;
+      color: white;
+      border: none;
+      font-size: 1em;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      z-index: 2;
+    }
+    .forgive-btn:hover, .smile-btn:hover {
+      background-color: #ff6e6e;
+    }
+    .result-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #c04f4f;
+      text-align: center;
+      animation: fadeIn 1s ease forwards;
+      z-index: 2;
+    }
+    .smile-btn {
+      display: none;
+      margin-top: 15px;
+      background-color: #ffa6b7;
+    }
+    #smileMessage {
+      margin-top: 20px;
+      font-size: 1.3em;
+      color: #d6336c;
+      display: none;
+      animation: sparkleText 1.5s ease-in-out infinite alternate;
+      z-index: 2;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes sparkleText {
+      0% { text-shadow: 0 0 5px #ff99cc; }
+      100% { text-shadow: 0 0 12px #ff66cc, 0 0 20px #ff66cc; }
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      transform: rotate(45deg);
+      animation: floatUp 10s linear infinite;
+      opacity: 0.6;
+      z-index: 1;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: sparkleFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes sparkleFloat {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      50% { transform: translateY(-20px) scale(1.4); opacity: 0.4; }
+      100% { transform: translateY(-40px) scale(1); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Audio -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="sad.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Sparkles -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      sparkle.style.left = Math.random() * 100 + 'vw';
+      sparkle.style.top = Math.random() * 100 + 'vh';
+      sparkle.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(sparkle);
+    }
+  </script>
+
+  <!-- Floating hearts -->
+  <script>
+    for (let i = 0; i < 15; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDelay = Math.random() * 10 + 's';
+      document.body.appendChild(heart);
+    }
+  </script>
+
+  <h1>I’m So Sorry, Harika 💔</h1>
+  <img class="cat-gif" src="crying-cat.gif" alt="Crying Cat" />
+  
+  <div class="apology-text">
+    Hey my cutiee patootie…<br><br>
+    I know I messed up. What I said was stupid nd hurtful, and I never meant to make u feel bad.  
+    You’re always too special to me and it breaks my heart knowing I made u upset. i should have really not said that.  
+    Please forgive your stupid bestt frndd 😔💗  
+    I promise I’ll make it up to you. i'm literally sooo sorryy cutiee piee 🙇🏻🙇🏻.
+  </div>
+
+  <button class="forgive-btn" onclick="showForgiveMessage()">Forgive Me?</button>
+
+  <div class="result-message" id="message">
+    Yay! You just made me the happiest idiot in the world 🥺🫶🏼. tysmm for ur forgiveness and trust me it will never happen again 🫶🏼.
+  </div>
+
+  <button class="smile-btn" id="smileBtn" onclick="showSmileMessage()">Click for a Smile</button>
+
+  <div id="smileMessage">✨ Sending you my sincere apologies and a million smiles 💗✨</div>
+
+  <!-- Confetti -->
+  <canvas class="confetti" id="confettiCanvas"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+  <!-- Script -->
+  <script>
+    function showForgiveMessage() {
+      confetti({
+        particleCount: 100,
+        spread: 80,
+        origin: { y: 0.6 }
+      });
+      document.getElementById('message').style.display = 'block';
+      document.getElementById('smileBtn').style.display = 'inline-block';
+    }
+
+    function showSmileMessage() {
+      const msg = document.getElementById('smileMessage');
+      msg.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
