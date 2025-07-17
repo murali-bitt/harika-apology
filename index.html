@@ -161,6 +161,44 @@
       50% { transform: translateY(-20px) scale(1.4); opacity: 0.4; }
       100% { transform: translateY(-40px) scale(1); opacity: 0; }
     }
+
+    @media (max-width: 480px) {
+  html, body {
+    padding: 20px 10px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .wrapper {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .cat-gif {
+    width: 180px;
+  }
+
+  .apology-text {
+    font-size: 1em;
+    padding: 15px;
+  }
+
+  .forgive-btn, .smile-btn {
+    width: 100%;
+    font-size: 1em;
+  }
+
+  #smileMessage {
+    font-size: 1.1em;
+    padding: 0 10px;
+    text-align: center;
+  }
+}
+
   </style>
 </head>
 <body>
